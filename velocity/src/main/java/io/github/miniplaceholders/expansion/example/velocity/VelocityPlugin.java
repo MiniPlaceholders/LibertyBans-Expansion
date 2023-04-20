@@ -7,12 +7,9 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.proxy.Player;
 
+import com.velocitypowered.api.proxy.ProxyServer;
+import io.github.miniplaceholders.expansion.libertybans.common.CommonExpansion;
 import org.slf4j.Logger;
-
-import io.github.miniplaceholders.api.Expansion;
-
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.tag.Tag;
 
 @Plugin(
     name = "Example-Expansion",
@@ -20,24 +17,28 @@ import net.kyori.adventure.text.minimessage.tag.Tag;
     version = Constants.VERSION,
     authors = {"4drian3d"},
     dependencies = {
-        @Dependency(id = "miniplaceholders")}
+        @Dependency(id = "miniplaceholders"),
+        @Dependency(id = "libertybans")
+    }
 )
 public final class VelocityPlugin {
     private final Logger logger;
+    private final ProxyServer proxyServer;
 
     @Inject
-    public VelocityPlugin(Logger logger) {
+    public VelocityPlugin(final Logger logger, ProxyServer proxyServer) {
         this.logger = logger;
+        this.proxyServer = proxyServer;
     }
 
     @Subscribe
     public void onProxyInitialize(ProxyInitializeEvent event) {
-        logger.info("Starting Example Expansion for Velocity");
+        logger.info("Starting LibertyBans Expansion for Velocity");
 
-        Expansion.builder("example")
-            .filter(Player.class)
-            .audiencePlaceholder("name", (aud, queue, ctx) -> Tag.selfClosingInserting(Component.text(((Player)aud).getUsername())))
-            .build()
-            .register();
+        new CommonExpansion(
+                (string) -> proxyServer.getPlayer(string)
+                        .map(Player::getUniqueId)
+                        .orElse(null)
+        ).register();
     }
 }

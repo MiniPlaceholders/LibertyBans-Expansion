@@ -1,7 +1,13 @@
-rootProject.name = "Example-Expansion"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-arrayOf("paper", "velocity").forEach {
-    include("example-expansion-$it")
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
+}
 
-    project(":example-expansion-$it").projectDir = file(it)
+rootProject.name = "LibertyBans-Expansion"
+
+arrayOf("common", "paper", "velocity").forEach {
+    include("libertybans-expansion-$it")
+
+    project(":libertybans-expansion-$it").projectDir = file(it)
 }
