@@ -8,8 +8,11 @@ import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.proxy.Player;
 
 import com.velocitypowered.api.proxy.ProxyServer;
-import io.github.miniplaceholders.expansion.libertybans.common.CommonExpansion;
+import io.github.miniplaceholders.expansion.libertybans.common.LibertyBansExpansion;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
+
+import java.util.UUID;
 
 @Plugin(
     name = "Example-Expansion",
@@ -35,10 +38,13 @@ public final class VelocityPlugin {
     public void onProxyInitialize(ProxyInitializeEvent event) {
         logger.info("Starting LibertyBans Expansion for Velocity");
 
-        new CommonExpansion(
-                (string) -> proxyServer.getPlayer(string)
+        new LibertyBansExpansion() {
+            @Override
+            protected @Nullable UUID provideUUIDByName(String name) {
+                return proxyServer.getPlayer(name)
                         .map(Player::getUniqueId)
-                        .orElse(null)
-        ).register();
+                        .orElse(null);
+            }
+        }.register();
     }
 }
