@@ -11,7 +11,7 @@ runtask = "2.0.1"
 pluginyml = "0.5.3"
 
 miniplaceholders = "2.1.0"
-libertybans = "1.1.0-M2"
+libertybans = "1.1.0-SNAPSHOT"
 
 [libraries]
 
