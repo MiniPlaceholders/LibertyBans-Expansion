@@ -20,7 +20,7 @@ paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "pap
 miniplaceholders = { group = "io.github.miniplaceholders", name = "miniplaceholders-api", version.ref = "miniplaceholders" }
 
 adventure-api = { group = "net.kyori", name = "adventure-api", version = "4.13.1" }
-adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version = "4.13.1" }
+adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version = "4.18.0" }
 libertybans = { group = "space.arim.libertybans", name = "bans-api", version.ref = "libertybans" }
 
 [plugins]
