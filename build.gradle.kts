@@ -4,20 +4,22 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.libertybansExpansionCommon)
     implementation(projects.libertybansExpansionVelocity)
     implementation(projects.libertybansExpansionPaper)
+    compileOnly(libs.miniplaceholders)
 }
 
-subprojects {
+allprojects {
     apply<JavaPlugin>()
     repositories {
-        maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://repo.papermc.io/repository/maven-public/")
     }
-    java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     tasks {
         compileJava {
             options.encoding = Charsets.UTF_8.name()
-            options.release.set(17)
+            options.release.set(21)
         }
     }
 }
