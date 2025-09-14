@@ -10,11 +10,10 @@ dependencies {
     compileOnly(libs.miniplaceholders)
 }
 
-allprojects {
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+
+subprojects {
     apply<JavaPlugin>()
-    repositories {
-        maven("https://repo.papermc.io/repository/maven-public/")
-    }
     java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     tasks {
         compileJava {
@@ -26,10 +25,14 @@ allprojects {
 
 tasks {
     shadowJar {
-        archiveFileName.set("${rootProject.name}-${project.version}.jar")
+        archiveFileName.set("LibertyBans-Expansion-${project.version}.jar")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     build {
         dependsOn(shadowJar)
+    }
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(21)
     }
 }

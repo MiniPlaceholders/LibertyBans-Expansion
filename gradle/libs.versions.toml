@@ -4,12 +4,8 @@ metadata.format.version = "1.1"
 
 velocity = "3.4.0-SNAPSHOT"
 paper = "1.21.8-R0.1-SNAPSHOT"
-
 blossom = "2.1.0"
-shadow = "8.1.1"
-runtask = "2.0.1"
-pluginyml = "0.5.3"
-
+shadow = "9.1.0"
 miniplaceholders = "3.0.1"
 libertybans = "1.1.0"
 
@@ -27,8 +23,5 @@ caffeine = "com.github.ben-manes.caffeine:caffeine:3.2.2"
 [plugins]
 
 blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
-shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
-runvelocity = { id = "xyz.jpenilla.run-velocity", version.ref = "runtask" }
-runpaper = { id = "xyz.jpenilla.run-velocity", version.ref = "runtask" }
-pluginyml = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "pluginyml" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.3" }
