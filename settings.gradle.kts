@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-arrayOf("common", "paper", "velocity").forEach {
+arrayOf("common", "paper", "velocity", "sponge").forEach {
     include("libertybans-expansion-$it")
 
     project(":libertybans-expansion-$it").projectDir = file(it)

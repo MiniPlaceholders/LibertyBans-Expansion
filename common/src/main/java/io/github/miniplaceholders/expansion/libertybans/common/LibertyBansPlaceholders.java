@@ -84,10 +84,6 @@ public abstract class LibertyBansPlaceholders {
 
     protected abstract @Nullable UUID provideUUIDByName(String name);
 
-    public LibertyBans getLibertyBans() {
-        return this.libertyBans;
-    }
-
     public LoadingCache<@NotNull Victim, List<Punishment>> punishmentCache() {
         return this.punishmentCache;
     }

@@ -9,7 +9,9 @@ dependencies {
 
     compileOnly(libs.adventure.api)
     compileOnly(libs.adventure.minimessage)
-    implementation(libs.caffeine)
+    implementation(libs.caffeine) {
+        isTransitive = false
+    }
 }
 
 sourceSets {

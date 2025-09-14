@@ -1,4 +1,4 @@
-package io.github.miniplaceholders.expansion.example.velocity;
+package io.github.miniplaceholders.expansion.libertybans.velocity;
 
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
@@ -10,7 +10,7 @@ import java.util.UUID;
 public final class VelocityProvider extends LibertyBansPlaceholders {
     private final ProxyServer proxyServer;
 
-    public VelocityProvider(Object proxy) {
+    public VelocityProvider(final Object proxy) {
         this.proxyServer = (ProxyServer) proxy;
     }
 

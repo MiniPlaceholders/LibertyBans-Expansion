@@ -7,6 +7,7 @@ dependencies {
     implementation(projects.libertybansExpansionCommon)
     implementation(projects.libertybansExpansionVelocity)
     implementation(projects.libertybansExpansionPaper)
+    implementation(projects.libertybansExpansionSponge)
     compileOnly(libs.miniplaceholders)
 }
 
@@ -27,6 +28,11 @@ tasks {
     shadowJar {
         archiveFileName.set("LibertyBans-Expansion-${project.version}.jar")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        minimize()
+        relocate(
+            "com.github.benmanes.caffeine",
+            "io.github.miniplaceholders.expansion.libertybans.libs.caffeine"
+        )
     }
     build {
         dependsOn(shadowJar)
