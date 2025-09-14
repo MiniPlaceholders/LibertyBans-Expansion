@@ -28,7 +28,6 @@ tasks {
     shadowJar {
         archiveFileName.set("LibertyBans-Expansion-${project.version}.jar")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        minimize()
         relocate(
             "com.github.benmanes.caffeine",
             "io.github.miniplaceholders.expansion.libertybans.libs.caffeine"

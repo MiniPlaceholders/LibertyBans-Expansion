@@ -18,13 +18,7 @@ public final class LibertyBansExpansionProvider implements ExpansionProvider {
 
     @Override
     public Expansion provideExpansion() {
-        final LibertyBansPlaceholders placeholders = switch (MiniPlaceholders.platform()) {
-            case PAPER -> new PaperProvider();
-            case VELOCITY -> new VelocityProvider(data.serverInstance());
-            case SPONGE -> new SpongeProvider(data.serverInstance());
-            default -> throw new UnsupportedOperationException("Unsupported Platform");
-        };
-        return placeholders.provideExpansion();
+        return StaticProvider.provideExpansion(data);
     }
 
     @Override
@@ -33,5 +27,17 @@ public final class LibertyBansExpansionProvider implements ExpansionProvider {
                 LoadRequirement.platform(Platform.PAPER, Platform.VELOCITY, Platform.SPONGE),
                 LoadRequirement.requiredComplement("libertybans", "LibertyBans")
         );
+    }
+
+    private static final class StaticProvider {
+        private static Expansion provideExpansion(PlatformData data) {
+            final LibertyBansPlaceholders placeholders = switch (MiniPlaceholders.platform()) {
+                case PAPER -> new PaperProvider();
+                case VELOCITY -> new VelocityProvider(data.serverInstance());
+                case SPONGE -> new SpongeProvider(data.serverInstance());
+                default -> throw new UnsupportedOperationException("Unsupported Platform");
+            };
+            return placeholders.provideExpansion();
+        }
     }
 }
