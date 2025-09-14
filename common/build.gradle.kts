@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("space.arim.libertybans:bans-api:1.1.0")
+    compileOnly("space.arim.libertybans:bans-api:1.1.2")
     compileOnly(libs.miniplaceholders)
 
     compileOnly(libs.adventure.api)
