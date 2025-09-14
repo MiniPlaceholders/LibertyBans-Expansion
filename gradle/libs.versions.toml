@@ -7,7 +7,7 @@ paper = "1.21.8-R0.1-SNAPSHOT"
 
 blossom = "2.1.0"
 shadow = "8.1.1"
-runtask = "2.0.1"
+runtask = "3.0.0"
 pluginyml = "0.5.3"
 
 miniplaceholders = "3.0.1"
