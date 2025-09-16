@@ -8,7 +8,7 @@ sponge = "14.0.0"
 blossom = "2.1.0"
 shadow = "9.1.0"
 miniplaceholders = "3.0.1"
-libertybans = "1.1.0"
+libertybans = "1.1.2"
 
 [libraries]
 
